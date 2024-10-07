@@ -247,7 +247,6 @@ function Terminal() {
     </div>
   );
 }
-xw
   
 
 export default Terminal;
