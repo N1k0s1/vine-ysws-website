@@ -101,9 +101,15 @@ function Terminal() {
           previousCommand = CommandArea.value;
           setprevusedCommand((prevArray) => [...prevArray, "guest@vine.me:~$ " + previousCommand]);
           if (CommandArea.value === "github") {
-            window.open("https://github.com/N1k0s1/vinyl-ysws-website", '_blank');
+            window.open("https://github.com/N1k0s1/vine-ysws-website", '_blank');
           } else if (CommandArea.value === "source") {
-            window.open("https://github.com/N1k0s1/vinyl-ysws-website", '_blank');
+            window.open("https://github.com/N1k0s1/vine-ysws-website", '_blank');
+          }
+          else if (CommandArea.value === "guide") {
+            window.open("https://sonic-pi.mehackit.org/exercises/en/01-introduction/01-introduction.html", '_blank');
+          }
+          else if (CommandArea.value === "submit") {
+            window.open("https://forms.fillout.com/t/tZ1CDPD5Brus", '_blank');
           }
           CommandArea.value = "";
         }
@@ -144,22 +150,22 @@ function Terminal() {
         {Text3.includes("Access") ? (
 <pre>
 {`
-              _             _ ____       _       _            
-       __   _(_)_ __  _   _| |  _ \\ _ __(_)_ __ | |_ ___ _ __ 
-       \\ \\ / / | '_ \\| | | | | |_) | '__| | '_ \\| __/ _ \\ '__|
-        \\ V /| | | | | |_| | |  __/| |  | | | | | ||  __/ |   
-         \\_/ |_|_| |_|\\__, |_|_|   |_|  |_|_| |_|\\__\\___|_|   
-                |___/                                   
+____   ____.__               
+\\   \\ /   /|__| ____   ____  
+ \\   Y   / |  |/    \\_/ __ \\ 
+  \\     /  |  |   |  \\  ___/ 
+   \\___/   |__|___|  /\\___  >
+                   \\/     \\/ 
 `}
 </pre>
 
 ) : null}
 
-        {Text3.includes("Access") ? <span>Welcome! this project is currently under development.</span> : ""}
+        {Text3.includes("Access") ? <span>Welcome!</span> : ""}
         {Text3.includes("Access") ? <span></span> : ""}<br />
         {Text3.includes("Access") ? <span><span style={{ color: "skyblue" }}>Available Commands:</span></span> : ""}
-        {Text3.includes("Access") ? <span><span style={{ color: "#c9c9c9" }}>General: </span> about, hacksim, neofetch, clear</span> : ""}
-        {Text3.includes("Access") ? <span><span style={{ color: "#c9c9c9" }}>Links:</span> github, source</span> : ""}
+        {Text3.includes("Access") ? <span><span style={{ color: "#c9c9c9" }}>General: </span> about, hacksim, neofetch, clear, instructions</span> : ""}
+        {Text3.includes("Access") ? <span><span style={{ color: "#c9c9c9" }}>Links:</span> github, submit, guide</span> : ""}
 
         <br></br>
         {Text3.includes("Access") ? <span>Thank you for visiting!◝(ᵔᵕᵔ)◜</span> : ""}
@@ -167,12 +173,18 @@ function Terminal() {
         <ul className='previousCommands' id='console23'>
           {prevusedCommand.map((item, index) => {
             if (item.match(new RegExp(`\\b${"github"}\\b`, 'g'))) {
-              return <li key={index}>{item}<br></br><br></br><span style={{ color: "#c9c9c9" }}>Opened GitHub https://github.com/N1k0s1/vinyl-ysws-website</span><br></br><br></br></li>;
+              return <li key={index}>{item}<br></br><br></br><span style={{ color: "#c9c9c9" }}>Opened GitHub https://github.com/N1k0s1/vine-ysws-website</span><br></br><br></br></li>;
+            }
+            else if (item.match(new RegExp(`\\b${"source"}\\b`, 'g'))) {
+              return <li key={index}>{item}<br></br><br></br><span style={{ color: "#c9c9c9" }}>Opened the source code of this site in a new tab: https://github.com/N1k0s1/vine-ysws-website</span><br></br><br></br></li>;
+            }
+            else if (item.match(new RegExp(`\\b${"guide"}\\b`, 'g'))) {
+              return <li key={index}>{item}<br></br><br></br><span style={{ color: "#c9c9c9" }}>Opened the guide for Sonic Pi in a new tab: https://sonic-pi.mehackit.org/exercises/en/01-introduction/01-introduction.html</span><br></br><br></br></li>;
+            }
+            else if (item.match(new RegExp(`\\b${"submit"}\\b`, 'g'))) {
+              return <li key={index}>{item}<br></br><br></br><span style={{ color: "#c9c9c9" }}>Opened the submission form in a new tab: https://forms.fillout.com/t/tZ1CDPD5Brus</span><br></br><br></br></li>;
             }
 
-            else if (item.match(new RegExp(`\\b${"source"}\\b`, 'g'))) {
-              return <li key={index}>{item}<br></br><br></br><span style={{ color: "#c9c9c9" }}>Opened the source code of this site in a new tab: https://github.com/N1k0s1/vinyl-ysws-website</span><br></br><br></br></li>;
-            }
             else if (item.match(new RegExp(`\\b${"hacksim"}\\b`, 'g'))) {
               return <div><HackerSimulator></HackerSimulator><br></br>
                 To abort, use aborthack
@@ -187,9 +199,14 @@ function Terminal() {
             }
             else if (item.match(new RegExp(`\\b${"about"}\\b`, 'g'))) {
               return <div><li key={index}>{item}</li>
-                <div className='aboutme'><br></br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                  <br></br><br></br>
+                <div className='about'><br></br>
+                to take part in this YSWS, you will code a piece of music that's at least 60 seconds long (max 4 minutes) using Sonic Pi. once you have completed your piece, you can submit it to the form provided. all submissions will recieve a vinyl with their piece of music on it. (this depends if there are at least 50 submissions.) the best pieces will be featured on the website. Good Luck! <br></br><br></br>
+                </div></div>
+            }
+            else if (item.match(new RegExp(`\\b${"instructions"}\\b`, 'g'))) {
+              return <div><li key={index}>{item}</li>
+                <div className='instructions'><br></br>
+                once you've made your 60 sec - 4 min song, make a GitHub repo, and a short readme about the genre/what the song's about. then submit your project using the "submit" command!<br></br><br></br>
                 </div></div>
             }
              else if (item.match(new RegExp(`\\b${"neofetch"}\\b`, 'g'))) {
@@ -247,6 +264,6 @@ function Terminal() {
     </div>
   );
 }
-  
+
 
 export default Terminal;
