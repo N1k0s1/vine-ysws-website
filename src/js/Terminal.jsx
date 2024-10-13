@@ -200,7 +200,7 @@ ____   ____.__
             else if (item.match(new RegExp(`\\b${"about"}\\b`, 'g'))) {
               return <div><li key={index}>{item}</li>
                 <div className='about'><br></br>
-                to take part in this YSWS, you will code a piece of music that's at least 60 seconds long (max 4 minutes) using Sonic Pi. once you have completed your piece, you can submit it to the form provided. all submissions will recieve a vinyl with their piece of music on it. (this depends if there are at least 50 submissions.) the best pieces will be featured on the website. Good Luck! <br></br><br></br>
+                to take part in this YSWS, you will code a piece of music that's at least 60 seconds long (max 4 minutes) using any open source code based music development software. (link to it on your github!) once you have completed your piece, you can submit it to the form provided. all submissions will recieve a vinyl with their piece of music on it. (this depends if there are at least 50 submissions.) the best pieces will be featured on the website. Good Luck! <br></br><br></br>
                 </div></div>
             }
             else if (item.match(new RegExp(`\\b${"instructions"}\\b`, 'g'))) {
